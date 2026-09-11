@@ -1,0 +1,648 @@
+/* =========================================
+   PERMANENT CLAIM ARCHIVE
+   CUTE • OFFICIAL • CHAOTIC
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f3eee2;
+    color: #26352d;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN PAGE
+   ========================================= */
+
+.page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+    background: #f7f3e9;
+    border: 4px double #2f5d50;
+    position: relative;
+}
+
+
+/* =========================================
+   FLOATING DECOR
+   ========================================= */
+
+#emoji-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.falling-emoji {
+    position: absolute;
+    top: -40px;
+    animation: fallDown linear forwards;
+    opacity: 0;
+}
+
+@keyframes fallDown {
+
+    0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   COVER
+   ========================================= */
+
+.cover {
+    min-height: 600px;
+    padding: 65px 25px;
+    background: #fbf8f0;
+    border: 1px solid #8ba99b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.department {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #52665c;
+}
+
+.tiny-stamp {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #87978f;
+}
+
+h1 {
+    margin: 25px 0 15px;
+    color: #2f5d50;
+    font-size: 42px;
+    line-height: 1.15;
+    letter-spacing: 2px;
+}
+
+.subject-name {
+    margin: 10px 0;
+    color: #23483b;
+    font-size: 42px;
+    letter-spacing: 4px;
+}
+
+.claimed-by {
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+#status {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 12px 22px;
+    border: 2px solid #2f5d50;
+    color: #2f5d50;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.details {
+    margin: 5px;
+    color: #52665c;
+    font-size: 14px;
+}
+
+.certificate-number {
+    margin-top: 15px;
+    color: #7b8982;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.tiny-note {
+    margin-top: 25px;
+    color: #89958f;
+    font-size: 11px;
+    font-style: italic;
+}
+
+
+/* =========================================
+   SEAL
+   ========================================= */
+
+.seal {
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+    border: 2px solid #3f765f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3f765f;
+    font-size: 30px;
+    font-weight: bold;
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+section {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 40px 35px;
+    background: #fbf8f0;
+    border: 1px solid #8ba99b;
+    position: relative;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(47, 93, 80, 0.08);
+}
+
+section::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    left: 17px;
+    color: #7c9d8c;
+    font-size: 18px;
+}
+
+section::after {
+    content: "♡";
+    position: absolute;
+    bottom: 12px;
+    right: 17px;
+    color: #7c9d8c;
+    font-size: 18px;
+}
+
+.section-number {
+    margin-bottom: 10px;
+    color: #8a9891;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   HEADINGS + TEXT
+   ========================================= */
+
+h2 {
+    margin-bottom: 25px;
+    color: #3f765f;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    color: #23483b;
+}
+
+p {
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   DIVIDERS
+   ========================================= */
+
+hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 1px solid #a9bbb2;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    margin-top: 15px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 6px;
+    background: #2f5d50;
+    color: #f7f3e9;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #23483b;
+    transform: scale(1.06) rotate(-1deg);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   SUBJECT RECORD
+   ========================================= */
+
+.record-grid {
+    max-width: 620px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: left;
+}
+
+.record-item {
+    padding: 13px;
+    border-bottom: 1px solid #d5dfda;
+}
+
+.label {
+    display: block;
+    margin-bottom: 4px;
+    color: #7a8981;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.value {
+    color: #2f5d50;
+    font-weight: bold;
+}
+
+.verified {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 8px 15px;
+    border: 1px solid #3f765f;
+    color: #3f765f;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   DECLARATION
+   ========================================= */
+
+.declaration-box {
+    max-width: 500px;
+    margin: 25px auto 5px;
+    padding: 18px;
+    border: 1px dashed #8ba99b;
+    color: #52665c;
+    line-height: 2;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CLAIM HISTORY
+   ========================================= */
+
+.timeline {
+    max-width: 570px;
+    margin: auto;
+    text-align: left;
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 3px solid #6f927f;
+}
+
+.timeline-item strong {
+    color: #2f5d50;
+}
+
+.timeline-item p {
+    margin-top: 5px;
+}
+
+.classified {
+    margin-top: 35px;
+    padding: 15px;
+    background: #eef2ed;
+    border: 1px dashed #8ba99b;
+    color: #52665c;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CLAIM CONDITIONS
+   ========================================= */
+
+ul {
+    max-width: 570px;
+    margin: auto;
+    padding-left: 25px;
+    text-align: left;
+    line-height: 1.9;
+}
+
+li::marker {
+    color: #3f765f;
+}
+
+.completion {
+    max-width: 550px;
+    margin: 30px auto 0;
+}
+
+.completion-bar {
+    height: 18px;
+    margin-top: 10px;
+    border: 1px solid #2f5d50;
+    background: #e2e9e4;
+}
+
+.completion-fill {
+    width: 100%;
+    height: 100%;
+    background: #3f765f;
+}
+
+
+/* =========================================
+   MUSIC
+   ========================================= */
+
+.music-note {
+    margin: 15px;
+    color: #3f765f;
+    font-size: 22px;
+    letter-spacing: 8px;
+}
+
+audio {
+    width: 85%;
+    max-width: 500px;
+    margin: 15px;
+}
+
+
+/* =========================================
+   VERIFICATION
+   ========================================= */
+
+.verification-result {
+    min-height: 100px;
+    margin-top: 25px;
+    color: #2f5d50;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   PHOTO EVIDENCE
+   ========================================= */
+
+.evidence {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.exhibit {
+    width: 200px;
+}
+
+.exhibit img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    padding: 6px;
+    background: #fffdf7;
+    border: 2px solid #8ba99b;
+    border-radius: 7px;
+    transition: 0.25s ease;
+}
+
+.exhibit img:hover {
+    transform: rotate(-2deg) scale(1.04);
+}
+
+.exhibit p {
+    margin-bottom: 4px;
+    color: #3f765f;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.exhibit span {
+    color: #7b8982;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FINAL NOTICE
+   ========================================= */
+
+.notice {
+    padding: 50px 35px;
+    border: 3px double #2f5d50;
+}
+
+.cute-divider {
+    margin: 25px;
+    color: #3f765f;
+    letter-spacing: 5px;
+}
+
+.cute-list {
+    color: #52665c;
+}
+
+.permanent-line {
+    margin: 30px 0;
+    color: #2f5d50;
+    letter-spacing: 1px;
+}
+
+.final-line {
+    margin: 30px 0 10px;
+    color: #23483b;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.case-status {
+    display: inline-block;
+    margin: 25px auto;
+    padding: 15px 25px;
+    border: 1px solid #a9bbb2;
+    color: #52665c;
+    text-align: left;
+    line-height: 2;
+    font-size: 13px;
+}
+
+.continued {
+    margin-top: 40px;
+    color: #3f765f;
+    font-size: 19px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   PRIVATE NOTE
+   ========================================= */
+
+.private-note {
+    background: #f8f4e9;
+}
+
+.note-paper {
+    max-width: 620px;
+    margin: auto;
+    padding: 30px;
+    background: #fffdf7;
+    border: 1px solid #c2cec7;
+    box-shadow: 4px 4px 0 #dfe6e1;
+    text-align: left;
+}
+
+.note-paper p {
+    margin-bottom: 20px;
+}
+
+.little-message {
+    color: #3f765f;
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+}
+
+.signature {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #d5dfda;
+    color: #2f5d50;
+    font-weight: bold;
+    text-align: center;
+}
+
+.end-record {
+    margin-top: 30px;
+    color: #7b8982;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    margin: 45px 0 20px;
+    color: #7b8982;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .page {
+        padding: 12px;
+    }
+
+    .cover {
+        min-height: 520px;
+        padding: 45px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subject-name {
+        font-size: 32px;
+    }
+
+    section {
+        padding: 30px 18px;
+    }
+
+    .record-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .evidence {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .exhibit {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .final-line {
+        font-size: 25px;
+    }
+
+    .note-paper {
+        padding: 22px;
+    }
+
+}
